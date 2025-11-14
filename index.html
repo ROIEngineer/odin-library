@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library App</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>My Library</h1>
+        </header>
+
+        <main>
+            <!--This section will display book list-->
+            <section id="bookList" aria-live="polite">Placeholder</section>
+            
+            <!--This section will pop up will handle user input-->
+            <section id="userButtons">
+                <div>
+                    <button id="newBookBtn">Add Book</button>
+                </div>
+            </section>
+
+            <!--This section will pop up the form to add books-->
+            <section id="formDisplay">
+                <div id="overlay" role="dialog" aria-modal="true">
+                    <div id="formWrap" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+                        <form id="bookForm" >
+                            <h2>Add New Book</h2>
+
+                            <div class="formGrid">
+                                <label for="title"></label>
+                                <input type="text" id="title" name="title" placeholder="Title" required>
+
+                                <label for="author"></label>
+                                <input type="text" id="author" name="author" placeholder="Author" required>
+
+                                <label for="pages"></label>
+                                <input type="number" id="pages" name="pages" min="1" placeholder="Pages">
+
+                                <label for="read"></label>
+                                <input type="checkbox" id="read" name="read" placeholder="Read">
+
+                                <label for="genre"></label>
+                                <input type="text" id="genre" name="genre" placeholder="Genre">
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" id="cancelBtn">Cancel</button>
+                                <button type="submit">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const myLibrary = [];
+
+            function Book(title, author, pages = null, read = false, genre) {
+            // the constructor...
+                if (!new.target) { throw Error ("You must use the 'new' constructor.") }
+                this.id = crypto.randomUUID();
+                this.title = title;
+                this.author = author;
+                this.pages = pages;
+                this.read = Boolean(read);
+                this.genre = genre;
+
+            }
+
+            function addBookToLibrary() {
+            // take params, create a book then store it in the array
+                const book = new Book();
+                myLibrary.push(book);
+            }
+
+        </script>
+    </body>
+</html>
