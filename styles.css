@@ -4,28 +4,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    outline: 1px solid red;
 }
 
-html, body {
+body {
     font-family: Arial, Helvetica, sans-serif, system-ui;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(#e66465, #9198e5);
-}
-
-body {
-    width: 60%;
     height: 100vh;
-}
-
-.formGrid {
-    display: flex;
-    flex-direction: column;
-}
-
-input {
-    margin-bottom: 10px;
+    text-align: center;
 }
