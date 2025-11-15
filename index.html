@@ -24,26 +24,67 @@
 
             <!--This section will pop up the form to add books-->
             <section id="formDisplay">
-                <div id="overlay" role="dialog" aria-modal="true">
+                <div id="overlay">
                     <div id="formWrap" role="dialog" aria-modal="true" aria-labelledby="formTitle">
                         <form id="bookForm" >
                             <h2>Add New Book</h2>
 
                             <div class="formGrid">
-                                <label for="title"></label>
-                                <input type="text" id="title" name="title" placeholder="Title" required>
+				<div>
+                                    <label for="title"></label>
+                                    <input type="text" id="title" name="title" placeholder="Title" required>
+				</div>
 
-                                <label for="author"></label>
-                                <input type="text" id="author" name="author" placeholder="Author" required>
+				<div>
+                                    <label for="author"></label>
+                                    <input type="text" id="author" name="author" placeholder="Author" required>
+				</div>
 
-                                <label for="pages"></label>
-                                <input type="number" id="pages" name="pages" min="1" placeholder="Pages">
+				<div>
+                                    <label for="pages"></label>
+                                    <input type="number" id="pages" name="pages" min="1" placeholder="Pages">
+				</div>
 
-                                <label for="read"></label>
-                                <input type="checkbox" id="read" name="read" placeholder="Read">
+				<div>
+                                    <label for="genre"></label>
+				    <select name="genres" id="hr-select">
+				        <option value="">Choose a genre:</option>
+					<hr />
+					<optgroup label="Fiction Genres">
+				            <option value="action">Action</option>
+					    <option value="adventure">Adventure</option>
+					    <option value="fantasy">Fantasy</option>
+					    <option value="historical-fiction">Historical Fiction</option>
+					    <option value="mystery">Mystery</option>
+					    <option value="thriller">Thriller</option>
+					    <option value="romance">Romance</option>
+                                            <option value="science-fiction">Science Fiction</option>
+                                            <option value="horror">Horror</option>
+                                            <option value="young-adult">Young Adult</option>
+					</optgroup>
+					<hr />
+                                        <optgroup label="Non-fiction Genres">
+                                            <option value="biography">Biography</option>
+					    <option value="autobiography">Autobiography</option>
+					    <option value="self-help">Self-Help</option>
+                                            <option value="history">History</option>
+                                            <option value="travel">Travel</option>
+                                            <option value="cookbooks">Cookbooks</option>
+                                            <option value="true-crime">True Crime</option>
+                                        </optgroup>
+					<hr />
+                                        <optgroup label="Children's Literature Genres">
+                                            <option value="picture-books">Picture Books</option>
+					    <option value="middle-grade">Middle Grade</option>
+                                            <option value="young-adult">Young Adult</option>
+                                        </optgroup>
+				    </select>
+				</div>
 
-                                <label for="genre"></label>
-                                <input type="text" id="genre" name="genre" placeholder="Genre">
+				<div>
+                                    <label for="read">Have you read it?</label>
+                                    <input type="checkbox" id="read" name="read">
+				</div>
                             </div>
 
                             <div class="form-actions">
