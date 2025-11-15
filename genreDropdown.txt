@@ -1,0 +1,35 @@
+<div class="genreDropdown">
+    <label for="genre">Genre:</label>
+    <select name="genre" id="genre">
+        <option value="">Choose a genre:</option>
+        <hr />
+        <optgroup label="Fiction Genres">
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="historical-fiction">Historical Fiction</option>
+            <option value="mystery">Mystery</option>
+            <option value="thriller">Thriller</option>
+            <option value="romance">Romance</option>
+            <option value="science-fiction">Science Fiction</option>
+            <option value="horror">Horror</option>
+            <option value="young-adult">Young Adult</option>
+        </optgroup>
+        <hr />
+        <optgroup label="Non-fiction Genres">
+            <option value="biography">Biography</option>
+            <option value="autobiography">Autobiography</option>
+            <option value="self-help">Self-Help</option>
+            <option value="history">History</option>
+            <option value="travel">Travel</option>
+            <option value="cookbooks">Cookbooks</option>
+            <option value="true-crime">True Crime</option>
+        </optgroup>
+        <hr />
+        <optgroup label="Children's Literature Genres">
+            <option value="picture-books">Picture Books</option>
+            <option value="middle-grade">Middle Grade</option>
+            <option value="young-adult">Young Adult</option>
+        </optgroup>
+    </select>
+</div>
