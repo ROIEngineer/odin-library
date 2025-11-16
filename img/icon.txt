@@ -1,0 +1,907 @@
+account-outline.png
+PNG 4.4KB
+book-open-blank-variant-outline.png
+PNG 4.38KB
+format-title.png
+PNG 1.93KB
+How can I add these PNGs as icons inside the input?
+We are going to use the provided PNG files as icons inside the input fields.
+Since the provided PNG files are actually text representations (probably a mistake), we assume they are meant to be image icons.
+
+However, note: the provided PNG files are not actual images but text. If they are meant to be used as icons, we need to have the actual image files.
+Since we don't have the actual image data, we can use the provided file names and assume they are available in the same directory.
+
+Alternatively, we can use an icon library or use the provided file names as background images.
+
+Let's assume we want to add an icon for the title, author, pages, and genre inputs.
+
+We can do this by:
+Wrapping the input in a container that has the icon.
+Using background images on the input and adjusting the padding to make space for the icon.
+But note: the current design already has a background image for the select dropdown.
+
+Alternatively, we can use an inline SVG or an <img> tag positioned absolutely inside the input container.
+
+Since we don't have the actual image data, we can only use the file names and hope they are correct.
+
+However, looking at the file names, they seem to be from a common icon set (Material Design Icons or similar). We can try to use them as background images.
+
+Steps for one input (for example, title):
+
+We'll add a class to the form-item container, e.g., "with-icon"
+Then, we'll set a background image for the input and adjust the padding so the text doesn't overlap.
+But note: the current CSS for inputs already has a background image for the select. We don't want to interfere.
+
+Alternatively, we can use a separate style for each input.
+
+Let's assign an icon for each input:
+
+Title: format-title.png
+Author: account-outline.png
+Pages: book-open-blank-variant-outline.png
+Genre: already has a dropdown icon, so we might leave it or change it? Let's leave the genre as is.
+We can do:
+
+.form-item input#title {
+background-image: url('format-title.png');
+background-repeat: no-repeat;
+background-position: left 10px center;
+background-size: 20px;
+padding-left: 40px;
+}
+
+Similarly for author and pages.
+
+However, note that the genre is a select and we are already using a background image for the dropdown arrow. We don't want to change that.
+
+But wait, the current background image for .styled-select is a dropdown arrow. We don't want to override that with a book icon.
+
+So, we'll only apply icons to the text and number inputs.
+
+Let's do:
+
+#title, #author, #pages {
+background-image: ...;
+background-repeat: no-repeat;
+background-position: left 10px center;
+background-size: 20px;
+padding-left: 40px;
+}
+
+But we have different icons for each. So we can assign individually.
+
+Alternatively, we can use the following:
+
+#title {
+background-image: url('format-title.png');
+}
+
+#author {
+background-image: url('account-outline.png');
+}
+
+#pages {
+background-image: url('book-open-blank-variant-outline.png');
+}
+
+However, note that the provided PNG files are not actually images but text. So we must replace them with actual images.
+
+Since we don't have the actual images, we cannot display them. But for the purpose of this code, we will use the file names and assume they are correct.
+
+Let's update the CSS in styles.css.
+
+We'll add:
+
+/* Icons for input fields */
+#title, #author, #pages {
+background-repeat: no-repeat;
+background-position: left 10px center;
+background-size: 20px;
+padding-left: 40px;
+}
+
+#title {
+background-image: url('format-title.png');
+}
+
+#author {
+background-image: url('account-outline.png');
+}
+
+#pages {
+background-image: url('book-open-blank-variant-outline.png');
+}
+
+But note: the current background for the select might be overridden. We don't want that for the genre.
+
+Also, the current background for the select is set in .styled-select. We are only targeting #title, #author, #pages.
+
+However, the genre select already has a background image for the dropdown arrow. We are not changing that.
+
+But wait, the above rule sets a background image for #pages, which is an input of type number, and that's fine.
+
+Let's also note that the current .styled-select has a background image for the arrow. We are not interfering.
+
+We must be cautious: if the image files are not available, the background image will not show.
+
+Alternatively, we can use data URIs if the images are small and we can encode them. But the provided files are text, so we cannot.
+
+Since we don't have the actual image data, we'll leave it as is and hope the images are in the same directory.
+
+Let's update the styles.css file accordingly.
+
+We are going to add the above CSS at the end of the styles.css file.
+
+However, note that the current CSS for .form-item input and .styled-select sets a background-image for the select. We are now setting a background-image for the inputs, which will override the one set by .form-item input. But that's okay because we are setting it for specific inputs.
+
+We must also adjust the background-position and padding for the inputs with icons.
+
+Let's write the CSS:
+
+/* Icons for input fields */
+#title, #author, #pages {
+background-repeat: no-repeat;
+background-position: left 10px center;
+background-size: 20px;
+padding-left: 40px;
+}
+
+#title {
+background-image: url('format-title.png');
+}
+
+#author {
+background-image: url('account-outline.png');
+}
+
+#pages {
+background-image: url('book-open-blank-variant-outline.png');
+}
+
+But note: the current .form-item input already has a padding of 12px. We are overriding the padding-left to 40px. That's okay.
+
+However, the background-image we are setting might conflict with the existing background-image for the select. We are only applying to #title, #author, #pages, so the select (which has class .styled-select and id #genre) is not affected.
+
+Let's update the styles.css file by adding the above code at the end.
+
+Alternatively, if we don't want to change the existing padding for all sides, we can adjust only the left padding.
+
+We are already setting padding-left to 40px, which is more than the original 12px. So the input will have:
+padding: 12px 12px 12px 40px;
+
+But wait, the original padding was 12px for all sides. Now we are setting padding-left to 40px and the others remain 12px? Actually, the shorthand padding in the original sets all sides to 12px. Then we override the left padding.
+
+This is acceptable.
+
+Let's do it.
+
+However, note that the current CSS for .form-item input and .styled-select sets a transition on border-color and box-shadow. We are not changing that.
+
+We are only adding background images.
+
+We'll update the styles.css file accordingly.
+
+Since we are only allowed to output the code, I will now provide the updated styles.css file with the added CSS at the end.
+
+But note: the original styles.css file does not have any rules for #title, #author, #pages. So we are adding new rules.
+
+Let's write the updated styles.css file.
+Adding Icons to Input Fields
+
+To add PNG icons inside your input fields, you'll need to modify both your HTML structure and CSS. Here's how you can implement this:
+
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library App</title>
+    <style>
+        /* Your existing CSS */
+        *,
+        *::before,
+        *::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(#e66465, #9198e5);
+            height: 100%;
+        }
+
+        .form-container {
+            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-popup {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            padding: 30px 32px;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .form-item {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer; 
+            padding: 10px;
+        }
+
+        .form-item label {
+            font-size: 0.8rem;
+            letter-spacing: 0.12rem;
+            margin: 10px 0;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon input {
+            font-size: 0.9rem;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+
+        .input-with-icon .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .form-item input:focus, 
+        .styled-select:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
+        }
+
+        .form-item input:hover, 
+        .styled-select:hover {
+            border-color: #a0aec0;
+        }
+
+        .form-item input:required {
+            border-left: 3px solid #e53e3e;
+        }
+
+        .form-item input:valid {
+            border-left: 3px solid #38a169;
+        }
+
+        .styled-select {
+            font-size: 0.9rem;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        .read-checkbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .read-checkbox input[type="checkbox"] {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-buttons button {
+            border: none;
+            border-radius: 6px;
+            color: white;
+            background-color: #2d3748;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 110px;
+        }
+
+        .form-buttons button:hover {
+            background-color: #4a5568; 
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+        
+        .form-buttons button:active { 
+            background-color: #2D4844; 
+            transform: translateY(0);
+        }
+
+        #cancelBtn {
+            background-color: #718096;
+        }
+
+        #cancelBtn:hover {
+            background-color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Library</h1>
+    </header>
+
+    <main>
+        <!--Book Carousel-->
+        <section id="bookList" aria-live="polite">
+        </section>
+
+        <!--Popup Form-->
+        <section>
+            <div class="form-container">
+                <form class="form-popup">
+                    <div class="form-item">
+                        <h2>Book Details</h2>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="title">Title:</label>
+                        <div class="input-with-icon">
+                            <img src="format-title.png" alt="Title icon" class="input-icon">
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="author">Author:</label>
+                        <div class="input-with-icon">
+                            <img src="account-outline.png" alt="Author icon" class="input-icon">
+                            <input type="text" id="author" name="author" required>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="pages">Pages:</label>
+                        <div class="input-with-icon">
+                            <img src="book-open-blank-variant-outline.png" alt="Pages icon" class="input-icon">
+                            <input type="number" id="pages" name="pages" min="1">
+                        </div>
+                    </div>
+        
+                    <div class="form-item">
+                        <label for="genre">Genre:</label>
+                        <select name="genre" id="genre" class="styled-select">
+                            <option value="">Choose a genre</option>
+                            <hr />
+                            <optgroup label="Fiction Genres">
+                            <option value="action">Action</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="historical-fiction">Historical Fiction</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="thriller">Thriller</option>
+                            <option value="romance">Romance</option>
+                            <option value="science-fiction">Science Fiction</option>
+                            <option value="horror">Horror</option>
+                            <option value="young-adult">Young Adult</option>
+                            </optgroup>
+                            <hr />
+                            <optgroup label="Non-fiction Genres">
+                            <option value="biography">Biography</option>
+                            <option value="autobiography">Autobiography</option>
+                            <option value="self-help">Self-Help</option>
+                            <option value="history">History</option>
+                            <option value="travel">Travel</option>
+                            <option value="cookbooks">Cookbooks</option>
+                            <option value="true-crime">True Crime</option>
+                            </optgroup>
+                            <hr />
+                            <optgroup label="Children's Literature Genres">
+                            <option value="picture-books">Picture Books</option>
+                            <option value="middle-grade">Middle Grade</option>
+                            <option value="young-adult">Young Adult</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="read-checkbox">
+                            <label for="read">Have you read it?</label>
+                            <input type="checkbox" id="read" name="read">
+                        </div>
+                    </div>
+                        
+                    <div class="form-item">
+                        <div class="form-buttons">
+                            <button type="button" id="cancelBtn">Cancel</button>
+                            <button type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const myLibrary = [];
+
+        function Book(title, author, pages = null, read = false) {
+            if (!new.target) { throw Error ("You must use the 'new' constructor.") }
+
+            this.id = crypto.randomUUID();
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.read = Boolean(read);
+        }
+        
+        function addBookToLibrary(title, author, pages = null, read = false) {
+            const book = new Book(title, author, pages, read);
+            myLibrary.push(book);
+            return book;
+        }
+
+        function displayBooks() {
+            myLibrary.forEach(book => {
+                const card = createCard(book);
+            });
+        }
+    </script>
+</body>
+</html>
+Key Changes Made:
+
+Modified HTML Structure:
+
+Wrapped each input in a div with class input-with-icon
+Added <img> elements with the appropriate PNG files as icons
+Updated CSS:
+
+Created .input-with-icon class to position the icons
+Added .input-icon class to style and position the icons
+Adjusted input padding to make space for the icons
+How It Works:
+
+The input-with-icon container uses position: relative to serve as a positioning context
+The icon images are absolutely positioned inside this container
+The inputs have increased left padding to prevent text from overlapping with the icons
+Make sure your PNG files are in the same directory as your HTML file, or update the src attributes in the <img> tags to point to the correct file paths.
+You idiot, dont generate a new HTML file, just instruct me segment by segment
+We are going to add icons to the input fields for title, author, and pages.
+We have three PNG files:
+
+format-title.png (for title input)
+account-outline.png (for author input)
+book-open-blank-variant-outline.png (for pages input)
+Steps:
+We need to modify the HTML structure for the input fields to include an icon.
+We will wrap the input in a div that has a class for positioning.
+We will add an <img> tag for the icon inside that div.
+We will adjust the CSS to style the input with an icon.
+We'll do this for the three input fields: title, author, and pages.
+
+Let's break it down step by step for each input.
+
+Note: We are not changing the existing CSS file, but we are going to add new CSS rules and modify the existing ones.
+
+We are going to:
+
+Create a new CSS class for the wrapper div: input-with-icon
+Adjust the input padding to make space for the icon
+Position the icon absolutely inside the wrapper
+Since the original code is in an HTML file with embedded CSS, I'll show the changes in the context of the existing code.
+
+Let's start with the HTML for the title input:
+
+Original:
+
+<div class="form-item"> <label for="title">Title:</label> <input type="text" id="title" name="title" required> </div>
+Change to:
+
+<div class="form-item"> <label for="title">Title:</label> <div class="input-with-icon"> <img src="format-title.png" alt="Title icon" class="input-icon"> <input type="text" id="title" name="title" required> </div> </div>
+Similarly for author and pages.
+
+Now, for the CSS:
+
+We need to add:
+
+.input-with-icon {
+position: relative;
+}
+
+.input-with-icon .input-icon {
+position: absolute;
+left: 12px;
+top: 50%;
+transform: translateY(-50%);
+width: 20px;
+height: 20px;
+pointer-events: none;
+}
+
+.input-with-icon input {
+padding-left: 40px; /* Adjust this value based on icon size and spacing */
+}
+
+We also need to adjust the existing input styles to not conflict.
+
+Since the original input styles are applied to form-item input, we might need to adjust the specificity.
+
+Alternatively, we can change the existing CSS to use a class for the input and then adjust accordingly.
+
+However, to keep it simple, we can override the padding for the input inside input-with-icon.
+
+Let's update the CSS for the input inside input-with-icon:
+
+.input-with-icon input {
+font-size: 0.9rem;
+padding: 12px 12px 12px 40px; /* top, right, bottom, left */
+... (other existing input styles)
+}
+
+We are going to adjust the existing CSS rule for input to not apply to these, but instead we'll create a new rule for .input-with-icon input.
+
+Since the original CSS is embedded, we can add these new rules at the end of the existing CSS.
+
+Now, let's write the changes in a segmented way.
+
+Step 1: Change the HTML for the title, author, and pages inputs.
+
+Step 2: Add the new CSS rules.
+
+We are not changing the existing CSS rules for the input, but we are adding new ones for the icon.
+
+We'll keep the existing input styles and then override the padding for the input inside the icon wrapper.
+
+Since the existing CSS for input is:
+
+.form-item input,
+.styled-select {
+... (styles)
+}
+
+We can change this to:
+
+.form-item input:not(.no-icon),
+.styled-select {
+... (styles)
+}
+
+But that might be overcomplicating. Alternatively, we can leave it and then override the padding for the input inside .input-with-icon.
+
+Let's do:
+
+.form-item input,
+.styled-select {
+... (existing styles, but we remove the padding from here and set it in a more specific rule for the non-icon inputs and the icon inputs separately)
+
+But to avoid breaking the existing design, we can do:
+
+We are going to remove the padding from the original rule and then set it in two separate rules:
+
+Original:
+.form-item input,
+.styled-select {
+padding: 12px;
+...
+}
+
+Change to:
+.form-item input:not(.no-icon),
+.styled-select {
+padding: 12px;
+...
+}
+
+Then for the .input-with-icon input, we set:
+padding: 12px 12px 12px 40px;
+
+But note: we don't have a class .no-icon, so we can instead just override the padding for .input-with-icon input.
+
+Alternatively, we can leave the original rule and then override the padding for .input-with-icon input.
+
+Since the original rule has padding:12px, and our new rule for .input-with-icon input has padding:12px 12px 12px 40px, it will override.
+
+So we can do:
+
+Keep the original rule for .form-item input and .styled-select, and then add:
+
+.input-with-icon input {
+padding-left: 40px;
+}
+
+But note: the original rule sets padding on all sides to 12px, so we are only changing the left padding.
+
+Alternatively, we can write:
+
+.input-with-icon input {
+padding: 12px 12px 12px 40px;
+}
+
+This will override the original rule because it is more specific (two classes and an element).
+
+Let's check the specificity:
+
+Original: .form-item input (class + element) -> specificity 0,1,1
+New: .input-with-icon input (class + element) -> specificity 0,1,1
+
+They are the same, so the order matters. We need to make sure the new rule comes after the original.
+
+So we'll add the new rules after the existing ones.
+
+Alternatively, we can make the new rule more specific by including the form-item:
+
+.form-item .input-with-icon input { ... }
+
+But let's keep it simple and just place the new rules after the existing ones.
+
+Step 3: Adjust the existing input styles to not conflict with the icon.
+
+We also need to adjust the :focus, :hover, :required, etc. for the input inside .input-with-icon.
+
+Since we are overriding the padding, we can let the other styles remain because they are inherited or applied by the same rules.
+
+However, the border and outline might be affected by the padding change? No, because the padding is inside the border.
+
+So, let's write the changes.
+
+Since the original code is in one HTML file, I'll show the changes in the context of the existing code.
+
+We are going to:
+
+Modify the three form items for title, author, and pages to include the icon.
+Add the new CSS rules for the icon.
+Let's write the changes segment by segment.
+
+First, the HTML changes for the title input:
+
+Replace:
+<input type="text" id="title" name="title" required>
+
+With:
+<div class="input-with-icon">
+<img src="format-title.png" alt="Title icon" class="input-icon">
+<input type="text" id="title" name="title" required>
+</div>
+
+Similarly for author:
+
+Replace:
+<input type="text" id="author" name="author" required>
+
+With:
+<div class="input-with-icon">
+<img src="account-outline.png" alt="Author icon" class="input-icon">
+<input type="text" id="author" name="author" required>
+</div>
+
+For pages:
+
+Replace:
+<input type="number" id="pages" name="pages" min="1">
+
+With:
+<div class="input-with-icon">
+<img src="book-open-blank-variant-outline.png" alt="Pages icon" class="input-icon">
+<input type="number" id="pages" name="pages" min="1">
+</div>
+
+Now, the CSS changes:
+
+We are going to add the following CSS rules after the existing ones:
+
+.input-with-icon {
+position: relative;
+}
+
+.input-with-icon .input-icon {
+position: absolute;
+left: 12px;
+top: 50%;
+transform: translateY(-50%);
+width: 20px;
+height: 20px;
+pointer-events: none;
+}
+
+.input-with-icon input {
+padding-left: 40px;
+}
+
+We are also going to adjust the existing rule for .form-item input to not set the padding for these inputs?
+Actually, we are overriding the padding-left for the input in .input-with-icon.
+
+But note: the original rule sets padding:12px, which means padding:12px on all sides.
+
+Our new rule sets padding-left:40px, but we want to keep the other paddings as 12px.
+
+So we can do:
+
+.input-with-icon input {
+padding: 12px 12px 12px 40px;
+}
+
+This sets top, right, bottom to 12px and left to 40px.
+
+Alternatively, we can set:
+
+.input-with-icon input {
+padding-left: 40px; /* This will override the left padding only */
+}
+
+But the original rule sets padding:12px, which is shorthand for all four sides. So if we only set padding-left, the other sides remain 12px.
+
+So we can do either. I think just setting padding-left is enough.
+
+However, let's check: the original rule is:
+
+text
+    .form-item input, 
+    .styled-select {
+        padding: 12px;
+        ... 
+    }
+Then we have:
+
+text
+    .input-with-icon input {
+        padding-left: 40px;
+    }
+This will result in:
+padding-top: 12px;
+padding-right: 12px;
+padding-bottom: 12px;
+padding-left: 40px;
+
+So that's correct.
+
+We don't need to change the existing rule.
+
+Let's write the CSS changes.
+
+We are going to add the following CSS in the <style> section, after the existing rules.
+
+We are also going to adjust the existing rule for the input:required and input:valid to work with the icon.
+
+The border-left is set by:
+
+text
+    .form-item input:required {
+        border-left: 3px solid #e53e3e;
+    }
+
+    .form-item input:valid {
+        border-left: 3px solid #38a169;
+    }
+These will still work because they are applied to the input, and the input is inside the .input-with-icon.
+
+However, the left border might be covered by the icon? Let's see: the icon is absolutely positioned and inside the input's padding area.
+
+The input's padding-left is 40px, and the icon is at left:12px, which is within the 40px. So the border-left of the input is at the very left, and the icon is inside the padding, so it's to the right of the border.
+
+So it should be fine.
+
+Let's implement.
+
+Since the original code is in one HTML file, I'll show the changes in the context of the existing code.
+
+We are only changing the HTML for the three inputs and adding CSS.
+
+We are not changing the JavaScript.
+
+Let's write the changes.
+I'll provide instructions segment by segment:
+
+1. First, update your HTML structure for the input fields
+
+Replace these form items in your index.html:
+
+For Title input:
+
+html
+<div class="form-item">
+    <label for="title">Title:</label>
+    <div class="input-with-icon">
+        <img src="format-title.png" alt="Title icon" class="input-icon">
+        <input type="text" id="title" name="title" required>
+    </div>
+</div>
+For Author input:
+
+html
+<div class="form-item">
+    <label for="author">Author:</label>
+    <div class="input-with-icon">
+        <img src="account-outline.png" alt="Author icon" class="input-icon">
+        <input type="text" id="author" name="author" required>
+    </div>
+</div>
+For Pages input:
+
+html
+<div class="form-item">
+    <label for="pages">Pages:</label>
+    <div class="input-with-icon">
+        <img src="book-open-blank-variant-outline.png" alt="Pages icon" class="input-icon">
+        <input type="number" id="pages" name="pages" min="1">
+    </div>
+</div>
+2. Add these CSS rules to your styles.css
+
+Add this to handle the icon container:
+
+css
+.input-with-icon {
+    position: relative;
+}
+Add this for the icon styling:
+
+css
+.input-with-icon .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+Update the input padding to make space for icons:
+Replace your current input padding rules with:
+
+css
+.form-item input, 
+.styled-select {
+    font-size: 0.9rem;
+    padding: 12px 12px 12px 40px; /* Added left padding for icons */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
