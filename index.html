@@ -8,56 +8,89 @@
     </head>
     <body>
         <header>
-        <h1>My Library</h1>
+            <h1>My Library</h1>
         </header>
 
         <main>
-        <!--This section will display book list-->
-        <section id="bookList" aria-live="polite">Placeholder</section>
+            <!--Book Carousel-->
+            <section id="bookList" aria-live="polite">
+            </section>
 
-        <!--This section will pop up will handle user input-->
-        <section id="userButtons">
-        <div>
-        <button id="newBookBtn">Add Book</button>
-        </div>
-        </section>
+            <!--Popup Form-->
+            <section>
+                <div class="form-container">
+                    <form class="form-popup">
+                        <div class="form-item">
+                            <h2>Book Details</h2>
+                        </div>
 
-        <!--This section will pop up the form to add books-->
-        <section id="formDisplay">
-        <div>
-        <form id="bookForm">
-        <h2>Book Details</h2>
+                        <div class="form-item">
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
 
-        <div>
-            <div>
-                <label for="title"></label>
-                <input type="text" id="title" name="title" placeholder="Title" required>
-            </div>
+                        <div class="form-item">
+                            <label for="author">Author:</label>
+                            <input type="text" id="author" name="author" required>
+                        </div>
 
-            <div>
-                <label for="author"></label>
-                <input type="text" id="author" name="author" placeholder="Author" required>
-            </div>
-
-            <div>
-                <label for="pages"></label>
-                <input type="number" id="pages" name="pages" min="1" placeholder="Pages">
-            </div>
-
+                        <div class="form-item">
+                            <label for="pages">Pages:</label>
+                            <input type="number" id="pages" name="pages" min="1">
+                        </div>
             
-            <div>
-                <label for="read">Have you read it?</label>
-                <input type="checkbox" id="read" name="read">
-            </div>
-        </div>
+                        <div class="form-item">
+                            <label for="genre">Genre:</label>
+                            <select name="genre" id="genre" class="styled-select">
+                                <option value="">Choose a genre</option>
+                                <hr />
+                                <optgroup label="Fiction Genres">
+                                <option value="action">Action</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="historical-fiction">Historical Fiction</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="romance">Romance</option>
+                                <option value="science-fiction">Science Fiction</option>
+                                <option value="horror">Horror</option>
+                                <option value="young-adult">Young Adult</option>
+                                </optgroup>
+                                <hr />
+                                <optgroup label="Non-fiction Genres">
+                                <option value="biography">Biography</option>
+                                <option value="autobiography">Autobiography</option>
+                                <option value="self-help">Self-Help</option>
+                                <option value="history">History</option>
+                                <option value="travel">Travel</option>
+                                <option value="cookbooks">Cookbooks</option>
+                                <option value="true-crime">True Crime</option>
+                                </optgroup>
+                                <hr />
+                                <optgroup label="Children's Literature Genres">
+                                <option value="picture-books">Picture Books</option>
+                                <option value="middle-grade">Middle Grade</option>
+                                <option value="young-adult">Young Adult</option>
+                                </optgroup>
+                            </select>
+                        </div>
 
-
-        <div class="form-actions">
-        <button type="button" id="cancelBtn">Cancel</button>
-        <button type="submit">Add</button>
-        </div>
-
-        </section>
+                        <div class="form-item">
+                            <div class="read-checkbox">
+                                <label for="read">Have you read it?</label>
+                                <input type="checkbox" id="read" name="read">
+                            </div>
+                        </div>
+                            
+                        <div class="form-item">
+                            <div class="form-buttons">
+                                <button type="button" id="cancelBtn">Cancel</button>
+                                <button type="submit">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
         </main>
 
         <script>

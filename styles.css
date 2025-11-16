@@ -6,13 +6,152 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif, system-ui;
+html, body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(#e66465, #9198e5);
-    height: 100vh;
-    text-align: center;
+    height: 100%;
+}
+
+.form-container {
+    margin: 2rem auto; /* Add some vertical spacing */
+    display: flex;
+    justify-content: center;
+}
+
+/* Form */
+.form-popup {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 30px 32px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Form Items */
+.form-item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; 
+    padding: 10px;
+}
+
+/* Form Label */
+.form-item label {
+    font-size: 0.8rem;
+    letter-spacing: 0.12rem;
+    margin: 10px 0;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+/* Form Input */
+.form-item input, 
+.styled-select {
+    font-size: 0.9rem;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-item input:focus, 
+.styled-select:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+.form-item input:hover, 
+.styled-select:hover {
+    border-color: #a0aec0;
+}
+
+/* Required field indication */
+.form-item input:required {
+    border-left: 3px solid #e53e3e;
+}
+
+.form-item input:valid {
+    border-left: 3px solid #38a169;
+}
+
+/* Form Dropdown */
+.styled-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* Form Checkbox */
+.read-checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.read-checkbox input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+/* Remove Arrows/Spinners - Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Form Buttons */
+.form-buttons button {
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background-color: #2d3748;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 110px;
+}
+
+.form-buttons button:hover {
+    background-color: #4a5568; 
+    opacity: 1;
+    transform: translateY(-1px); /* Subtle lift effect */
+}
+.form-buttons button:active { background-color: #2D4844; transform: translateY(0); /* Reset on click */ }
+
+/* Different color for cancel button */
+#cancelBtn {
+    background-color: #718096;
+}
+
+#cancelBtn:hover {
+    background-color: #4a5568;
 }
