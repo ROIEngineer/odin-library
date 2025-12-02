@@ -39,48 +39,37 @@ function displayLibrary() {
     });
 }
 
-// element refs
+const dialog = document.getElementById("book-dialog");
 const newBookBtn = document.getElementById("new-book-btn");
-const newBookForm = document.getElementById("new-book-form");
-const cancelBtn = document.getElementById("cancel-btn");
+const dialogForm = document.getElementById("dialog-form");
 
-// Show / hide form
-newBookBtn.addEventListener('click', () => {
-  newBookForm.classList.toggle("hidden");
-  // focus the title field - may delete later
-  if (!newBookForm.classList.contains("hidden")) {
-    document.getElementById("title").focus();
-  }
+// open modal
+newBookBtn.addEventListener("click", () => {
+  dialog.showModal();
+  document.getElementById("dialog-title").focus();
 });
 
-
-// Cancel button hides the form and resets fields
-cancelBtn.addEventListener("click", () => {
-  newBookForm.reset();
-  newBookForm.classList.add("hidden");
+// handle cancel button automatically (method="dialog" makes ESC or cancel close)
+document.getElementById("dialog-cancel").addEventListener("click", () => {
+  dialog.close();
 });
 
-// Handle form submit
-newBookForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // IMPORTANT: stops form from submitting to a server
+dialogForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // prevents actual dialog form submission
 
-  // Read values from the form
-  const title = document.getElementById("title").value.trim();
-  const author = document.getElementById("author").value.trim();
-  const pages = parseInt(document.getElementById("pages").value, 10);
-  const read = document.getElementById("read").checked;
+  const title = document.getElementById("dialog-title").value.trim();
+  const author = document.getElementById("dialog-author").value.trim();
+  const pages = parseInt(document.getElementById("dialog-pages").value, 10);
+  const read = document.getElementById("dialog-read").checked;
 
-  // Basic input-check (tiny safeguard)
-  if (!title || !author || pages <= 0) {
-    alert("Please fill out title, author and a valid pages number.");
+  if (!title || !author || !pages) {
+    alert("Please fill out all fields.");
     return;
   }
 
-  // Create book and re-render
   addBookToLibrary(title, author, pages, read);
   displayLibrary();
 
-  // Reset & hide form
-  newBookForm.reset();
-  newBookForm.classList.add("hidden");
+  dialog.close();
+  dialogForm.reset();
 });
