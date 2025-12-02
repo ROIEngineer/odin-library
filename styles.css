@@ -16,3 +16,18 @@ body {
     height: 100vh;
     text-align: center;
 }
+
+#library-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.book-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 200px;
+  border-radius: 8px;
+  background: #fafafa;
+}
