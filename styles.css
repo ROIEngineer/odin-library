@@ -31,3 +31,38 @@ body {
   border-radius: 8px;
   background: #fafafa;
 }
+
+.hiddin {
+  display: none;
+}
+
+#new-book-form {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 320px;
+  background: #fff;
+}
+
+
+#new-book-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+#new-book-form input[type="text"],
+#new-book-form input[type="number"] {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.25rem;
+  box-sizing: border-box;
+}
+
+.form-buttons {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center; /* I added this */
+}
