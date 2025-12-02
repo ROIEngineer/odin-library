@@ -14,37 +14,38 @@
 
         <main>
 	  <button id="new-book-btn">New Book</button>
+          
+          <dialog id="book-dialog">
+	    <form method="dialog" id="dialog-form">
+	      <h2>Add a new book</h2>
 
-	  <!-- Hidden form that will toggle visible when clicking the button -->
-	  <form id="new-book-form" class="hidden">
-	    <h2>Add a new book</h2>
+	      <label>
+	        Title
+	        <input type="text" name="title" id="dialog-title" required/>
+	      </label>
 
-	    <label>
-	      Title
-	      <input type="text" name="title" id="title" required/>
-	    </label>
+              <label>
+                Author
+                <input type="text" name="author" id="dialog-author" required/>
+              </label>
 
-            <label>
-              Author
-              <input type="text" name="author" id="author" required/>
-            </label>
+              <label>
+                Pages
+                <input type="number" name="pages" id="dialog-pages" min="1" required/>
+              </label>
 
-            <label>
-              Pages
-              <input type="number" name="pages" id="pages" required/>
-            </label>
-
-            <label>
-             Read
-              <input type="checkbox" name="read" id="read"/>
-            </label>
+              <label>
+                Read
+                <input type="checkbox" name="read" id="dialog-read"/>
+              </label>
 	
-	    <div class="form-buttons">
-	      <button type="submit">Add Book</button>
-              <button type="button" id="cancel-btn">Cancel</button>
-	    </div>
-	  </form>
- 
+              <menu>
+		<button value="cancel" id="dialog-cancel">Cancel</button>
+	        <button type="submit" id="dialog-submit">Add Book</button>
+	      </menu>
+	    </form>
+          </dialog>
+
           <!-- Container for cards -->
           <div id="library-container"></div>
 
