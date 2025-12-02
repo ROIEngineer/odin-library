@@ -18,7 +18,7 @@ function displayLibrary() {
   const container = document.getElementById("library-container");
 
   // Clear container before re-rendering
-  container.textContent = "";
+  container.innerHTML = "";
 
   myLibrary.forEach((book) => {
     // Create card
@@ -27,7 +27,7 @@ function displayLibrary() {
     card.setAttribute("data-id", book.id); // Useful for delete buttons later
 
     // Book info
-    card.textContent = `
+    card.innerHTML = `
       <h3>${book.title}</h3>
       <p><strong>Author:</strong> ${book.author}</p>
       <p><strong>Pages:<strong> ${book.pages}</p>
@@ -38,3 +38,6 @@ function displayLibrary() {
     container.appendChild(card);
     });
 }
+
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
+displayLibrary();
