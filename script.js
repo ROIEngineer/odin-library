@@ -42,6 +42,9 @@ function displayLibrary() {
         <button class="toggle-read-btn" data-id="${book.id}">
           ${book.read ? "Mark as unread" : "Mark as read"}
         </button>
+	<button class="delete-btn" data-id="${book.id}" aria-label="Delete ${book.title}">
+	  Delete
+	</button>
       </div>
     `;
 
