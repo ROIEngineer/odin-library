@@ -13,3 +13,28 @@ function addBookToLibrary(title, author, pages, read = false) {
   myLibrary.push(book);
   return book;
 }
+
+function displayLibrary() {
+  const container = document.getElementById("library-container");
+
+  // Clear container before re-rendering
+  container.textContent = "";
+
+  myLibrary.forEach((book) => {
+    // Create card
+    const card = document.createElement("div");
+    card.classList.add("book-card");
+    card.setAttribute("data-id", book.id); // Useful for delete buttons later
+
+    // Book info
+    card.textContent = `
+      <h3>${book.title}</h3>
+      <p><strong>Author:</strong> ${book.author}</p>
+      <p><strong>Pages:<strong> ${book.pages}</p>
+      <p><strong>Read:</strong> ${book.read ? "Yes" : "No"}</p>
+    `;
+
+    // Add card to page
+    container.appendChild(card);
+    });
+}
