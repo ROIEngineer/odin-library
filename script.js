@@ -8,6 +8,11 @@ function Book(title, author, pages, read = false) {
   this.read = read;
 }
 
+// give each Book a toggle method
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, pages, read = false) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
@@ -31,13 +36,34 @@ function displayLibrary() {
       <h3>${book.title}</h3>
       <p><strong>Author:</strong> ${book.author}</p>
       <p><strong>Pages:</strong> ${book.pages}</p>
-      <p><strong>Read:</strong> ${book.read ? "Yes" : "No"}</p>
+      <p class="read-status"><strong>Read:</strong> ${book.read ? "Yes" : "No"}</p>
+
+      <div class="card-buttons">
+        <button class="toggle-read-btn" data-id="${book.id}">
+          ${book.read ? "Mark as unread" : "Mark as read"}
+        </button>
+      </div>
     `;
 
     // Add card to page
     container.appendChild(card);
     });
 }
+
+const container = document.getElementById("library-container");
+
+container.addEventListener("click", (e) => {
+  const toggleBtn = e.target.closest(".toggle-read-btn");
+  if (!toggleBtn) return; // click wasn't on a toggle button
+
+  const id = toggleBtn.dataset.id;
+  // find the book in the array
+  const book = myLibrary.find((b) => b.id === id);
+  if (!book) return;
+
+  book.toggleRead();   // flip the boolean
+  displayLibrary();    // re-render to show updated status and button label
+});
 
 const dialog = document.getElementById("book-dialog");
 const newBookBtn = document.getElementById("new-book-btn");
@@ -62,7 +88,7 @@ dialogForm.addEventListener("submit", (e) => {
   const pages = parseInt(document.getElementById("dialog-pages").value, 10);
   const read = document.getElementById("dialog-read").checked;
 
-  if (!title || !author || !pages) {
+  if (!title || !author || pages <= 0 || isNaN(pages)) {
     alert("Please fill out all fields.");
     return;
   }
