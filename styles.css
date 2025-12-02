@@ -32,38 +32,42 @@ body {
   background: #fafafa;
 }
 
-.hidden {
-  display: none;
+dialog {
+  padding: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  max-width: 350px;
+  width: 90%;
 }
 
-#new-book-form {
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  max-width: 320px;
-  background: #fff;
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
 }
 
-
-#new-book-form label {
+dialog label {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 0.9rem;
 }
 
-#new-book-form input[type="text"],
-#new-book-form input[type="number"] {
+dialog input[type="text"],
+dialog input[type="number"] {
   width: 100%;
-  padding: 0.25rem 0.5rem;
   margin-top: 0.25rem;
-  box-sizing: border-box;
+  padding: 0.25rem 0.5rem;
 }
 
-.form-buttons {
-  margin-top: 0.5rem;
+menu {
   display: flex;
+  justify-content: flex-end;
   gap: 0.5rem;
-  justify-content: center; /* I added this */
+  margin-top: 1rem;
 }
 
+.card-buttons {
+  margin-top: 0.5rem;
+}
+.card-buttons button {
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
