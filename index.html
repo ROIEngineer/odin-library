@@ -3,91 +3,51 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Library App</title>
+        <title>Library</title>
         <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
-        <h1>My Library</h1>
+          <h1>Library</h1>
         </header>
 
         <main>
-        <!--This section will display book list-->
-        <section id="bookList" aria-live="polite">Placeholder</section>
+	  <button id="new-book-btn">New Book</button>
+          
+          <dialog id="book-dialog">
+	    <form method="dialog" id="dialog-form">
+	      <h2>Add a new book</h2>
 
-        <!--This section will pop up will handle user input-->
-        <section id="userButtons">
-        <div>
-        <button id="newBookBtn">Add Book</button>
-        </div>
-        </section>
+	      <label>
+	        Title
+	        <input type="text" name="title" id="dialog-title" required/>
+	      </label>
 
-        <!--This section will pop up the form to add books-->
-        <section id="formDisplay">
-        <div>
-        <form id="bookForm">
-        <h2>Book Details</h2>
+              <label>
+                Author
+                <input type="text" name="author" id="dialog-author" required/>
+              </label>
 
-        <div>
-            <div>
-                <label for="title"></label>
-                <input type="text" id="title" name="title" placeholder="Title" required>
-            </div>
+              <label>
+                Pages
+                <input type="number" name="pages" id="dialog-pages" min="1" required/>
+              </label>
 
-            <div>
-                <label for="author"></label>
-                <input type="text" id="author" name="author" placeholder="Author" required>
-            </div>
+              <label>
+                Read
+                <input type="checkbox" name="read" id="dialog-read"/>
+              </label>
+	
+              <menu>
+		<button value="cancel" id="dialog-cancel" formnovalidate>Cancel</button>
+	        <button type="submit" id="dialog-submit">Add Book</button>
+	      </menu>
+	    </form>
+          </dialog>
 
-            <div>
-                <label for="pages"></label>
-                <input type="number" id="pages" name="pages" min="1" placeholder="Pages">
-            </div>
-
-            
-            <div>
-                <label for="read">Have you read it?</label>
-                <input type="checkbox" id="read" name="read">
-            </div>
-        </div>
-
-
-        <div class="form-actions">
-        <button type="button" id="cancelBtn">Cancel</button>
-        <button type="submit">Add</button>
-        </div>
-
-        </section>
+          <!-- Container for cards -->
+          <div id="library-container"></div>
         </main>
-
-        <script>
-            const myLibrary = [];
-
-            function Book(title, author, pages = null, read = false) {
-            // the constructor...
-                if (!new.target) { throw Error ("You must use the 'new' constructor.") }
-
-                this.id = crypto.randomUUID();
-                this.title = title;
-                this.author = author;
-                this.pages = pages;
-                this.read = Boolean(read);
-
-            }
-            function addBookToLibrary(title, author, pages = null, read = false) {
-                // take params, create a book then store it in the array
-                const book = new Book(title, author, pages, read);
-                myLibrary.push(book);
-                return book;
-            }
-
-            function displayBooks() {
-                // loops through the array and displays each book on the page
-                myLibrary.forEach(book => {
-                    const card = createCard(book);
-                });
-            }
-
-        </script>
     </body>
 </html>
