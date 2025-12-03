@@ -15,26 +15,28 @@
           <dialog id="book-dialog">
 	    <form method="dialog" id="dialog-form">
 	      <h2>Add a new book</h2>
+	      
+	      <div class="book-items">
+	        <label>
+	          Title
+	          <input type="text" name="title" id="dialog-title" required/>
+	        </label>
 
-	      <label>
-	        Title
-	        <input type="text" name="title" id="dialog-title" required/>
-	      </label>
+                <label>
+                  Author
+                  <input type="text" name="author" id="dialog-author" required/>
+                </label>
 
-              <label>
-                Author
-                <input type="text" name="author" id="dialog-author" required/>
-              </label>
+                <label>
+                  Pages
+                  <input type="number" name="pages" id="dialog-pages" min="1" required/>
+                </label>
 
-              <label>
-                Pages
-                <input type="number" name="pages" id="dialog-pages" min="1" required/>
-              </label>
-
-              <label>
-                Read
-                <input type="checkbox" name="read" id="dialog-read"/>
-              </label>
+                <label>
+                  Read
+                  <input type="checkbox" name="read" id="dialog-read"/>
+                </label>
+	      </div>
 	
               <menu>
 		<button value="cancel" id="dialog-cancel" formnovalidate>Cancel</button>
