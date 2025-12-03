@@ -16,6 +16,7 @@ Book.prototype.toggleRead = function () {
 function addBookToLibrary(title, author, pages, read = false) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
+  saveLibrary(); // autosave when adding
   return book;
 }
 
@@ -59,7 +60,6 @@ function loadLibrary() {
     localStorage.removeItem(STORAGE_KEY);
   }
 }
-
 
 function displayLibrary() {
   const container = document.getElementById("library-container");
@@ -105,6 +105,7 @@ container.addEventListener("click", (e) => {
     const book = myLibrary.find((b) => b.id === id);
     if (!book) return;
     book.toggleRead();   // flip the boolean
+    saveLibrary(); // persist the change
     displayLibrary();    // re-render to show updated status and button label
   }
 
@@ -120,6 +121,7 @@ container.addEventListener("click", (e) => {
     if (index === -1) return;
 
     myLibrary.splice(index, 1); // remove from array
+    saveLibrary(); // persist deletion
     displayLibrary(); // re-render UI
   }
 });
@@ -157,4 +159,9 @@ dialogForm.addEventListener("submit", (e) => {
 
   dialog.close();
   dialogForm.reset();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadLibrary();
+  displayLibrary();
 });
