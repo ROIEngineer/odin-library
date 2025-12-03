@@ -49,7 +49,7 @@ function loadLibrary() {
     parsed.forEach((obj) => {
       // Create a Book to get the proper prototype, then overwrite fields with saved data
       const book = Object.assign(
-        new Book(obj.title, obj.author. obj.pages, obj.read),
+        new Book(obj.title, obj.author, obj.pages, obj.read),
 	{ id: obj.id ?? crypto.randomUUID() } // preserve id if present, else create one
       );
       myLibrary.push(book);
@@ -57,7 +57,7 @@ function loadLibrary() {
   } catch (err) {
     console.error("Failed to load library from localStorage (data may be corrupt):", err);
     // Clear the bad data to recover
-    localStorage.removeItem(STORAGE_KEY);
+    // localStorage.removeItem(STORAGE_KEY);
   }
 }
 
