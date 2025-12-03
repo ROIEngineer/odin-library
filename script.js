@@ -19,6 +19,48 @@ function addBookToLibrary(title, author, pages, read = false) {
   return book;
 }
 
+// ----- localStorage helpers -------
+
+// key used in localStorage
+const STORAGE_KEY = "myLibrary_v1";
+
+// Save the current myLibrary array to localStorage
+function saveLibrary() {
+  try {
+    // Store plain data as JSON
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(myLibrary));
+  } catch (err) {
+    console.error("Failed to save library to localStorage:", err);
+  }
+}
+
+// Load from localStorage and convert plain objects back into Book instances
+function loadLibrary() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return; // nothing saved yet
+
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return;
+
+    // Convert each plain object into a Book instance (preserving original id)
+    myLibrary.length = 0; // Clear current array but keep reference
+    parsed.forEach((obj) => {
+      // Create a Book to get the proper prototype, then overwrite fields with saved data
+      const book = Object.assign(
+        new Book(obj.title, obj.author. obj.pages, obj.read),
+	{ id: obj.id ?? crypto.randomUUID() } // preserve id if present, else create one
+      );
+      myLibrary.push(book);
+    });
+  } catch (err) {
+    console.error("Failed to load library from localStorage (data may be corrupt):", err);
+    // Clear the bad data to recover
+    localStorage.removeItem(STORAGE_KEY);
+  }
+}
+
+
 function displayLibrary() {
   const container = document.getElementById("library-container");
 
