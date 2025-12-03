@@ -71,3 +71,8 @@ menu {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.card-buttons button.delete-btn {
+  background: #ffecec;
+  border: 1px solid #ffb3b3;
+}
