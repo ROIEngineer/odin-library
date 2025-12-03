@@ -57,15 +57,29 @@ const container = document.getElementById("library-container");
 
 container.addEventListener("click", (e) => {
   const toggleBtn = e.target.closest(".toggle-read-btn");
-  if (!toggleBtn) return; // click wasn't on a toggle button
+  if (toggleBtn) {  // click wasn't on a toggle button
+    const id = toggleBtn.dataset.id;
+    // find the book in the array
+    const book = myLibrary.find((b) => b.id === id);
+    if (!book) return;
+    book.toggleRead();   // flip the boolean
+    displayLibrary();    // re-render to show updated status and button label
+  }
 
-  const id = toggleBtn.dataset.id;
-  // find the book in the array
-  const book = myLibrary.find((b) => b.id === id);
-  if (!book) return;
+  const delBtn = e.target.closest(".delete-btn");
+  if (delBtn) {
+    const id = delBtn.dataset.id;
 
-  book.toggleRead();   // flip the boolean
-  displayLibrary();    // re-render to show updated status and button label
+    // ask for confirmation
+    const confirmed = confirm("Delete this book? This cannot be undone.");
+    if (!confirmed) return;
+
+    const index = myLibrary.findIndex((b) => b.id === id);
+    if (index === -1) return;
+
+    myLibrary.splice(index, 1); // remove from array
+    displayLibrary(); // re-render UI
+  }
 });
 
 const dialog = document.getElementById("book-dialog");
