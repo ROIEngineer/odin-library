@@ -82,7 +82,7 @@ function displayLibrary() {
 
       <div class="card-buttons">
         <button class="toggle-read-btn" data-id="${book.id}">
-          ${book.read ? "Mark as unread" : "Mark as read"}
+          ${book.read ? "Unread" : "Read"}
         </button>
 	<button class="delete-btn" data-id="${book.id}" aria-label="Delete ${book.title}">
 	  Delete
