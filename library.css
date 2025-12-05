@@ -1,0 +1,77 @@
+/* ---------- library container ---------- */
+#library-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 1rem;
+  min-height: 130px;
+  width: 200px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  position: relative;
+}
+
+.book-card > * {
+  padding: 0.5rem;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.08);
+}
+
+/* title & meta */
+.book-card h3 {
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.book-card p { 
+  margin: 0;
+  color: var(--bg);
+  font-size: 0.9rem;
+}
+
+.read-status { font-weight: 600; color: #111827; }
+
+/* ---------- card buttons ---------- */
+.card-buttons {
+  margin: 0 auto; /* push to bottom */
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end; /* Might change later */ 
+  align-items: center;
+}
+
+/* generic button look */
+.card-buttons button {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  box-shadow: none;
+  letter-spacing: .05px;
+}
+
+/* toggle (primary) */
+.toggle-read-btn {
+  border: 1px solid rgba(79,70,229,0.12);
+  color: #2c3e50;
+}
+
+/* delete (danger) */
+.delete-btn {
+  background: #fff5f5;
+  border: 1px solid rgba(239,68,68,0.12);
+  color: var(--danger);
+}
